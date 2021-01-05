@@ -1,0 +1,35 @@
+plugins {
+    id("com.android.application")
+    id("kotlin-android")
+    id("kotlin-android-extensions")
+}
+
+android {
+    defaultConfig {
+        minSdkVersion(21)
+    }
+}
+
+dependencies {
+    implementation "com.nhaarman.acorn.ext:acorn"
+    implementation "com.nhaarman.acorn.ext:acorn-android-appcompat"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    implementation "androidx.appcompat:appcompat"
+
+    testImplementation "com.nhaarman:expect.kt"
+    testImplementation "org.junit.jupiter:junit-jupiter-api"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+
+    androidTestImplementation "junit:junit"
+    androidTestImplementation "com.nhaarman:expect.kt"
+    androidTestImplementation "androidx.test.espresso:espresso-core"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib"
+    androidTestImplementation "androidx.test:runner"
+    androidTestImplementation "androidx.test:rules"
+}
+
+androidExtensions {
+    experimental = true
+}
