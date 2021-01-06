@@ -1,5 +1,7 @@
 package com.bryanoostra.acorn.transitionanimations.sample
 
+import com.bryanoostra.acorn.transitionanimations.FadeInAlphaTransition
+import com.bryanoostra.acorn.transitionanimations.FadeOutInAlphaTransition
 import com.bryanoostra.acorn.transitionanimations.SlideInBottomTransition
 import com.bryanoostra.acorn.transitionanimations.SlideInLeftTransition
 import com.bryanoostra.acorn.transitionanimations.SlideInRightTransition
@@ -29,6 +31,8 @@ class DefaultSceneTransitionFactory(
             SlideInTopTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) },
             SlideInLeftTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) },
             SlideInRightTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) },
+            FadeInAlphaTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) },
+            FadeOutInAlphaTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) },
         )
     }
 
