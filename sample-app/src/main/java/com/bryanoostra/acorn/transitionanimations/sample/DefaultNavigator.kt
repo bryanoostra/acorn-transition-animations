@@ -15,7 +15,18 @@ class DefaultNavigator(
         return RedScene(RedSceneListener(), null)
     }
 
-    private inner class RedSceneListener : RedScene.Events
+    private inner class RedSceneListener : RedScene.Events {
+
+        override fun transition() {
+            replace(BlueScene(BlueSceneListener(), null))
+        }
+    }
+
+    private inner class BlueSceneListener : BlueScene.Events {
+        override fun transition() {
+            replace(RedScene(RedSceneListener(), null))
+        }
+    }
 
     override fun instantiateScene(sceneClass: KClass<out Scene<*>>, state: SceneState?): Scene<out Container> {
         error("Not supported")

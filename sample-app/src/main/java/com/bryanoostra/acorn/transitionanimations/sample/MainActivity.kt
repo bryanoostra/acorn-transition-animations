@@ -11,5 +11,7 @@ class MainActivity : AcornAppCompatActivity() {
         return DefaultNavigatorProvider()
     }
 
-    override fun provideTransitionFactory(viewControllerFactory: ViewControllerFactory): SceneTransitionFactory = defaultSceneTransitionFactory
+    override fun provideTransitionFactory(viewControllerFactory: ViewControllerFactory): SceneTransitionFactory {
+        return DefaultSceneTransitionFactory(viewControllerFactory)
+    }
 }

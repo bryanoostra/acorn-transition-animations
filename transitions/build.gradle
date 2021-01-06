@@ -1,0 +1,19 @@
+plugins {
+    id "com.android.library"
+    id "kotlin-android"
+}
+
+android {
+    defaultConfig {
+        minSdkVersion(21)
+    }
+}
+
+dependencies {
+    api "com.nhaarman.acorn.ext:acorn"
+    api "com.nhaarman.acorn.ext:acorn-android-appcompat"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    implementation "androidx.appcompat:appcompat"
+}

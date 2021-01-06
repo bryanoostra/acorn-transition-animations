@@ -10,7 +10,7 @@ import com.nhaarman.acorn.presentation.BasicScene
 import com.nhaarman.acorn.presentation.Container
 import com.nhaarman.acorn.state.SceneState
 
-class RedScene(
+class BlueScene(
     private val listener: Events,
     savedState: SceneState?
 ) : BasicScene<Container>(savedState),
@@ -28,7 +28,7 @@ class RedScene(
     }
 
     override fun createViewController(parent: ViewGroup): ViewController {
-        return RedViewController(parent.inflate(R.layout.red_scene))
+        return BlueViewController(parent.inflate(R.layout.blue_scene))
     }
 
     interface Events {
