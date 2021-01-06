@@ -1,6 +1,7 @@
 package com.bryanoostra.acorn.transitionanimations.sample
 
 import com.bryanoostra.acorn.transitionanimations.SlideInLeftTransition
+import com.bryanoostra.acorn.transitionanimations.SlideInRightTransition
 import com.nhaarman.acorn.android.presentation.ViewControllerFactory
 import com.nhaarman.acorn.android.transition.SceneTransition
 import com.nhaarman.acorn.android.transition.SceneTransitionFactory
@@ -21,8 +22,13 @@ class DefaultSceneTransitionFactory(
     }
 
     override fun transitionFor(previousScene: Scene<*>, newScene: Scene<*>, data: TransitionData?): SceneTransition {
-        return SlideInLeftTransition { parent ->
-            viewControllerFactory.viewControllerFor(newScene, parent)
-        }
+        return choose(
+            SlideInLeftTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) },
+            SlideInRightTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+        )
+    }
+
+    private fun <T> choose(vararg items: T): T {
+        return items.get((Math.random() * items.size).toInt())
     }
 }
