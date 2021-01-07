@@ -8,6 +8,7 @@ import com.nhaarman.acorn.state.SceneState
 import kotlin.reflect.KClass
 
 class DefaultNavigator(
+    private val transitionSelector: TransitionSelector,
     savedState: NavigatorState?,
 ) : ReplacingNavigator(savedState) {
 
@@ -17,13 +18,16 @@ class DefaultNavigator(
 
     private inner class RedSceneListener : RedScene.Events {
 
-        override fun transition() {
+        override fun transition(transition: TransitionSelector.Transition) {
+            transitionSelector.selectedTransition = transition
             replace(BlueScene(BlueSceneListener(), null))
         }
     }
 
     private inner class BlueSceneListener : BlueScene.Events {
-        override fun transition() {
+
+        override fun transition(transition: TransitionSelector.Transition) {
+            transitionSelector.selectedTransition = transition
             replace(RedScene(RedSceneListener(), null))
         }
     }

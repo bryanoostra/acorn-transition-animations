@@ -7,11 +7,18 @@ import com.nhaarman.acorn.android.transition.SceneTransitionFactory
 
 class MainActivity : AcornAppCompatActivity() {
 
+    private val transitionSelector = TransitionSelector()
+
     override fun provideNavigatorProvider(): NavigatorProvider {
-        return DefaultNavigatorProvider()
+        return DefaultNavigatorProvider(
+            transitionSelector
+        )
     }
 
     override fun provideTransitionFactory(viewControllerFactory: ViewControllerFactory): SceneTransitionFactory {
-        return DefaultSceneTransitionFactory(viewControllerFactory)
+        return DefaultSceneTransitionFactory(
+            viewControllerFactory,
+            transitionSelector,
+        )
     }
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText"
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/slideInTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Slide in Top" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/slideInRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Slide in Right" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/slideInBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Slide in Bottom" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/slideInLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Slide in Left" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fadeInAlpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fade in Alpha" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fadeOutInAlpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fade Out In Alpha" />
+
+</merge>

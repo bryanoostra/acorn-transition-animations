@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F00">
+    android:background="#F00"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
 
-    <View
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:background="#FFF" />
+    <include layout="@layout/buttons" />
 
-</FrameLayout>
+</LinearLayout>
