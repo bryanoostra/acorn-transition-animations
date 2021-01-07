@@ -5,13 +5,13 @@ import androidx.appcompat.widget.AppCompatButton
 import com.nhaarman.acorn.android.presentation.ViewController
 import com.nhaarman.acorn.presentation.Container
 
-interface BlueContainer : Container {
+interface TransitionContainer : Container {
     fun setTransitionListener(listener: TransitionListener)
 }
 
-class BlueViewController(
+class TransitionViewController(
     override val view: View
-) : BlueContainer,
+) : TransitionContainer,
     ViewController {
 
     private var transitionListener: TransitionListener? = null
@@ -33,5 +33,9 @@ class BlueViewController(
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.FadeInAlpha) }
         view.findViewById<AppCompatButton>(R.id.fadeOutInAlpha)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.FadeOutInAlpha) }
+        view.findViewById<AppCompatButton>(R.id.staggeredLeft)
+            .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.StaggeredLeft) }
+        view.findViewById<AppCompatButton>(R.id.staggeredRight)
+            .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.StaggeredRight) }
     }
 }

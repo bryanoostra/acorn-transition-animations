@@ -11,5 +11,7 @@ class TransitionSelector {
         SlideInRight,
         FadeInAlpha,
         FadeOutInAlpha,
+        StaggeredLeft,
+        StaggeredRight,
     }
 }

@@ -43,4 +43,16 @@
         android:layout_height="wrap_content"
         android:text="Fade Out In Alpha" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/staggeredLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Staggered Left" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/staggeredRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Staggered Right" />
+
 </merge>

@@ -10,10 +10,10 @@ import com.nhaarman.acorn.state.SceneState
 class BlueScene(
     private val listener: Events,
     savedState: SceneState?
-) : BasicScene<BlueContainer>(savedState),
+) : BasicScene<TransitionContainer>(savedState),
     ProvidesView {
 
-    override fun attach(v: BlueContainer) {
+    override fun attach(v: TransitionContainer) {
         super.attach(v)
         v.setTransitionListener(object : TransitionListener {
             override fun transitionWith(transition: TransitionSelector.Transition) {
@@ -23,7 +23,7 @@ class BlueScene(
     }
 
     override fun createViewController(parent: ViewGroup): ViewController {
-        return BlueViewController(parent.inflate(R.layout.blue_scene))
+        return TransitionViewController(parent.inflate(R.layout.blue_scene))
     }
 
     interface Events {
