@@ -14,5 +14,6 @@ class TransitionSelector {
         StaggeredLeft,
         StaggeredRight,
         PopIn,
+        Flip,
     }
 }
