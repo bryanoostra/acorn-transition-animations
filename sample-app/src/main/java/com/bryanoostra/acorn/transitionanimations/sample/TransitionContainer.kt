@@ -37,5 +37,7 @@ class TransitionViewController(
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.StaggeredLeft) }
         view.findViewById<AppCompatButton>(R.id.staggeredRight)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.StaggeredRight) }
+        view.findViewById<AppCompatButton>(R.id.popIn)
+            .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.PopIn) }
     }
 }

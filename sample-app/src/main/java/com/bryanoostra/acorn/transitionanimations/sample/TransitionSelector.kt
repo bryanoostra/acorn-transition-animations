@@ -13,5 +13,6 @@ class TransitionSelector {
         FadeOutInAlpha,
         StaggeredLeft,
         StaggeredRight,
+        PopIn,
     }
 }
