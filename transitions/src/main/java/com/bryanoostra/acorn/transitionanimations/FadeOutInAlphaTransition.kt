@@ -23,30 +23,30 @@ class FadeOutInAlphaTransition(
             alpha = 0f
         }
 
+        val duration = parent.resources.getInteger(android.R.integer.config_longAnimTime).toLong()
+
         callback.attach(newViewResult)
 
         parent.doOnPreDraw {
 
-            originalChildren.forEach {
-                it
-                    ?.animate()
-                    ?.setDuration(parent.resources.getInteger(android.R.integer.config_shortAnimTime).toLong())
-                    ?.alpha(0f)
-            }
-
-            newView.animate()
-                .alpha(1f)
-                .setStartDelay(parent.resources.getInteger(android.R.integer.config_shortAnimTime).toLong())
-                .setDuration(parent.resources.getInteger(android.R.integer.config_shortAnimTime).toLong())
+            parent.animate()
+                .alpha(0f)
+                .setDuration(duration / 2)
                 .withEndAction {
-
                     originalChildren.forEach { child -> parent.removeView(child) }
 
                     if (shouldClearBackground) {
                         newView.background = null
                     }
 
-                    callback.onComplete(newViewResult)
+                    newView.alpha = 1f
+
+                    parent.animate()
+                        .alpha(1f)
+                        .setDuration(duration / 2)
+                        .withEndAction {
+                            callback.onComplete(newViewResult)
+                        }
                 }
         }
     }
