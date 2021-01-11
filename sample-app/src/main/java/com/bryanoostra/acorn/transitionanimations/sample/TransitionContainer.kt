@@ -1,7 +1,7 @@
 package com.bryanoostra.acorn.transitionanimations.sample
 
 import android.view.View
-import androidx.appcompat.widget.AppCompatButton
+import android.widget.TextView
 import com.nhaarman.acorn.android.presentation.ViewController
 import com.nhaarman.acorn.presentation.Container
 
@@ -21,25 +21,29 @@ class TransitionViewController(
     }
 
     init {
-        view.findViewById<AppCompatButton>(R.id.slideInTop)
+        view.findViewById<TextView>(R.id.slideInTop)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.SlideInTop) }
-        view.findViewById<AppCompatButton>(R.id.slideInRight)
+        view.findViewById<TextView>(R.id.slideInRight)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.SlideInRight) }
-        view.findViewById<AppCompatButton>(R.id.slideInBottom)
+        view.findViewById<TextView>(R.id.slideInBottom)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.SlideInBottom) }
-        view.findViewById<AppCompatButton>(R.id.slideInLeft)
+        view.findViewById<TextView>(R.id.slideInLeft)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.SlideInLeft) }
-        view.findViewById<AppCompatButton>(R.id.fadeInAlpha)
+        view.findViewById<TextView>(R.id.fadeInAlpha)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.FadeInAlpha) }
-        view.findViewById<AppCompatButton>(R.id.fadeOutInAlpha)
+        view.findViewById<TextView>(R.id.fadeOutInAlpha)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.FadeOutInAlpha) }
-        view.findViewById<AppCompatButton>(R.id.staggeredLeft)
+        view.findViewById<TextView>(R.id.staggeredLeft)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.StaggeredLeft) }
-        view.findViewById<AppCompatButton>(R.id.staggeredRight)
+        view.findViewById<TextView>(R.id.staggeredRight)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.StaggeredRight) }
-        view.findViewById<AppCompatButton>(R.id.popIn)
+        view.findViewById<TextView>(R.id.popIn)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.PopIn) }
-        view.findViewById<AppCompatButton>(R.id.flip)
+        view.findViewById<TextView>(R.id.flip)
             .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.Flip) }
+        view.findViewById<TextView>(R.id.openDialog)
+            .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.OpenDialog) }
+        view.findViewById<TextView>(R.id.closeDialog)
+            .setOnClickListener { transitionListener?.transitionWith(TransitionSelector.Transition.CloseDialog) }
     }
 }

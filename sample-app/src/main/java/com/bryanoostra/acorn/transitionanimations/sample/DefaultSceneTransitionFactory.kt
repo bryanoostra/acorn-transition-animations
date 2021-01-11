@@ -1,8 +1,10 @@
 package com.bryanoostra.acorn.transitionanimations.sample
 
+import com.bryanoostra.acorn.transitionanimations.CloseDialogTransition
 import com.bryanoostra.acorn.transitionanimations.FadeInAlphaTransition
 import com.bryanoostra.acorn.transitionanimations.FadeOutInAlphaTransition
 import com.bryanoostra.acorn.transitionanimations.FlipTransition
+import com.bryanoostra.acorn.transitionanimations.OpenDialogTransition
 import com.bryanoostra.acorn.transitionanimations.PopInTransition
 import com.bryanoostra.acorn.transitionanimations.SlideInBottomTransition
 import com.bryanoostra.acorn.transitionanimations.SlideInLeftTransition
@@ -10,9 +12,11 @@ import com.bryanoostra.acorn.transitionanimations.SlideInRightTransition
 import com.bryanoostra.acorn.transitionanimations.SlideInTopTransition
 import com.bryanoostra.acorn.transitionanimations.StaggeredLeftTransition
 import com.bryanoostra.acorn.transitionanimations.StaggeredRightTransition
+import com.bryanoostra.acorn.transitionanimations.sample.TransitionSelector.Transition.CloseDialog
 import com.bryanoostra.acorn.transitionanimations.sample.TransitionSelector.Transition.FadeInAlpha
 import com.bryanoostra.acorn.transitionanimations.sample.TransitionSelector.Transition.FadeOutInAlpha
 import com.bryanoostra.acorn.transitionanimations.sample.TransitionSelector.Transition.Flip
+import com.bryanoostra.acorn.transitionanimations.sample.TransitionSelector.Transition.OpenDialog
 import com.bryanoostra.acorn.transitionanimations.sample.TransitionSelector.Transition.PopIn
 import com.bryanoostra.acorn.transitionanimations.sample.TransitionSelector.Transition.SlideInBottom
 import com.bryanoostra.acorn.transitionanimations.sample.TransitionSelector.Transition.SlideInLeft
@@ -47,6 +51,8 @@ class DefaultSceneTransitionFactory(
             StaggeredRight -> StaggeredRightTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
             PopIn -> PopInTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
             Flip -> FlipTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            OpenDialog -> OpenDialogTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            CloseDialog -> CloseDialogTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
         }
     }
 }

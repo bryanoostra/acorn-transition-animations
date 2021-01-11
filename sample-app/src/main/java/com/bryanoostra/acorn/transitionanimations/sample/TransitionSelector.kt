@@ -15,5 +15,7 @@ class TransitionSelector {
         StaggeredRight,
         PopIn,
         Flip,
+        OpenDialog,
+        CloseDialog,
     }
 }

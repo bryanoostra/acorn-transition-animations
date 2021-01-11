@@ -7,64 +7,112 @@
     tools:orientation="vertical"
     tools:parentTag="android.widget.LinearLayout">
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/slideInTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Slide in Top" />
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Slide in Top"
+        android:textColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/slideInRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Slide in Right" />
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Slide in Right"
+        android:textColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/slideInBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Slide in Bottom" />
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Slide in Bottom"
+        android:textColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/slideInLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Slide in Left" />
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Slide in Left"
+        android:textColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/fadeInAlpha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fade in Alpha" />
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Fade in Alpha"
+        android:textColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/fadeOutInAlpha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fade Out In Alpha" />
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Fade Out In Alpha"
+        android:textColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/staggeredLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Staggered Left" />
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Staggered Left"
+        android:textColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/staggeredRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Staggered Right" />
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Staggered Right"
+        android:textColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/popIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pop In" />
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Pop In"
+        android:textColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/flip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Flip" />
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Flip"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/openDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Open Dialog"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/closeDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:padding="4dp"
+        android:text="Close Dialog"
+        android:textColor="@color/white" />
 
 </merge>
