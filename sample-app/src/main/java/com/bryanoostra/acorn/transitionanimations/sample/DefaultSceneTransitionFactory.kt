@@ -41,18 +41,18 @@ class DefaultSceneTransitionFactory(
 
     override fun transitionFor(previousScene: Scene<*>, newScene: Scene<*>, data: TransitionData?): SceneTransition {
         return when (transitionSelector.selectedTransition) {
-            SlideInBottom -> SlideInBottomTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            SlideInTop -> SlideInTopTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            SlideInLeft -> SlideInLeftTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            SlideInRight -> SlideInRightTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            FadeInAlpha -> FadeInAlphaTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            FadeOutInAlpha -> FadeOutInAlphaTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            StaggeredLeft -> StaggeredLeftTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            StaggeredRight -> StaggeredRightTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            PopIn -> PopInTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            Flip -> FlipTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            OpenDialog -> OpenDialogTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
-            CloseDialog -> CloseDialogTransition { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            SlideInBottom -> SlideInBottomTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            SlideInTop -> SlideInTopTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            SlideInLeft -> SlideInLeftTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            SlideInRight -> SlideInRightTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            FadeInAlpha -> FadeInAlphaTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            FadeOutInAlpha -> FadeOutInAlphaTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            StaggeredLeft -> StaggeredLeftTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            StaggeredRight -> StaggeredRightTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            PopIn -> PopInTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            Flip -> FlipTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            OpenDialog -> OpenDialogTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
+            CloseDialog -> CloseDialogTransition(durationMs = 5000) { parent -> viewControllerFactory.viewControllerFor(newScene, parent) }
         }
     }
 }

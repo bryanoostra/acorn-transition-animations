@@ -6,6 +6,7 @@ import com.nhaarman.acorn.android.presentation.ViewController
 import com.nhaarman.acorn.android.transition.SceneTransition
 
 class FlipTransition(
+    private val durationMs: Long? = null,
     private val viewController: (ViewGroup) -> ViewController
 ) : SceneTransition {
 
@@ -20,7 +21,7 @@ class FlipTransition(
         val shouldClearBackground = newView.background == null
         if (newView.background == null) newView.applyWindowBackground()
 
-        val duration = parent.resources.getInteger(android.R.integer.config_longAnimTime).toLong()
+        val duration = durationMs ?: parent.resources.getInteger(android.R.integer.config_longAnimTime).toLong()
 
         newView.apply {
             visibility = View.INVISIBLE

@@ -6,6 +6,7 @@ import com.nhaarman.acorn.android.presentation.ViewController
 import com.nhaarman.acorn.android.transition.SceneTransition
 
 class CloseDialogTransition(
+    private val durationMs: Long? = null,
     private val viewController: (ViewGroup) -> ViewController
 ) : SceneTransition {
 
@@ -18,7 +19,7 @@ class CloseDialogTransition(
             parent.addView(newViewResult.view)
         }
 
-        val duration = parent.resources.getInteger(android.R.integer.config_longAnimTime).toLong()
+        val duration = durationMs ?: parent.resources.getInteger(android.R.integer.config_longAnimTime).toLong()
 
         callback.attach(newViewResult)
 

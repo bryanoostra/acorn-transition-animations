@@ -5,6 +5,7 @@ import com.nhaarman.acorn.android.presentation.ViewController
 import com.nhaarman.acorn.android.transition.SceneTransition
 
 class FadeInAlphaTransition(
+    private val durationMs: Long? = null,
     private val viewController: (ViewGroup) -> ViewController
 ) : SceneTransition {
 
@@ -29,7 +30,7 @@ class FadeInAlphaTransition(
 
             newView.animate()
                 .alpha(1f)
-                .setDuration(parent.resources.getInteger(android.R.integer.config_shortAnimTime).toLong())
+                .setDuration(durationMs ?: parent.resources.getInteger(android.R.integer.config_shortAnimTime).toLong())
                 .withEndAction {
 
                     originalChildren.forEach { child -> parent.removeView(child) }

@@ -5,11 +5,12 @@ import com.nhaarman.acorn.android.presentation.ViewController
 import com.nhaarman.acorn.android.transition.SceneTransition
 
 class SlideInRightTransition(
+    private val durationMs: Long? = null,
     private val viewController: (ViewGroup) -> ViewController
 ) : SceneTransition {
 
     override fun execute(parent: ViewGroup, callback: SceneTransition.Callback) {
-        val originalChildren = (0..parent.childCount).map { parent.getChildAt(it) }
+        val originalChildren = (0 until parent.childCount).map { parent.getChildAt(it)!! }
 
         val newViewResult = viewController(parent)
 
@@ -27,15 +28,19 @@ class SlideInRightTransition(
 
         callback.attach(newViewResult)
 
+        val duration = durationMs ?: parent.resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
+
         parent.doOnPreDraw {
 
             originalChildren.forEach {
-                it?.animate()?.translationXBy(-sceneWidth)
+                it.animate()
+                    .setDuration(duration)
+                    .translationXBy(-sceneWidth)
             }
 
             newView.animate()
                 .translationX(0f)
-                .setDuration(parent.resources.getInteger(android.R.integer.config_shortAnimTime).toLong())
+                .setDuration(duration)
                 .withEndAction {
 
                     originalChildren.forEach { child -> parent.removeView(child) }

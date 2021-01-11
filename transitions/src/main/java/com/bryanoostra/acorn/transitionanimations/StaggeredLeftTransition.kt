@@ -6,6 +6,7 @@ import com.nhaarman.acorn.android.presentation.ViewController
 import com.nhaarman.acorn.android.transition.SceneTransition
 
 class StaggeredLeftTransition(
+    private val durationMs: Long? = null,
     private val viewController: (ViewGroup) -> ViewController
 ) : SceneTransition {
 
@@ -23,7 +24,7 @@ class StaggeredLeftTransition(
         val sceneWidth = parent.width.toFloat()
         val sceneHeight = parent.height.toFloat()
 
-        val duration = parent.resources.getInteger(android.R.integer.config_longAnimTime).toLong()
+        val duration = durationMs ?: parent.resources.getInteger(android.R.integer.config_longAnimTime).toLong()
 
         newView.apply {
             translationX = sceneWidth

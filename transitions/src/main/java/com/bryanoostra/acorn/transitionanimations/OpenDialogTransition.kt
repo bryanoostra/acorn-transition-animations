@@ -7,6 +7,7 @@ import com.nhaarman.acorn.android.transition.SceneTransition
 import com.nhaarman.acorn.android.util.inflateView
 
 class OpenDialogTransition(
+    private val durationMs: Long? = null,
     private val viewController: (ViewGroup) -> ViewController
 ) : SceneTransition {
 
@@ -28,7 +29,7 @@ class OpenDialogTransition(
 
         callback.attach(newViewResult)
 
-        val duration = parent.resources.getInteger(android.R.integer.config_longAnimTime).toLong()
+        val duration = durationMs ?: parent.resources.getInteger(android.R.integer.config_longAnimTime).toLong()
 
         dialogLayout.apply {
             alpha = 0f
