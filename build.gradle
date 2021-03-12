@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlinVersion = "1.4.21"
+    ext.kotlinVersion = "1.4.31"
 
     repositories {
         google()
@@ -8,8 +8,11 @@ buildscript {
 
     configurations.maybeCreate("pitest")
     dependencies {
-        classpath('com.android.tools.build:gradle:3.5.4')
+        classpath("com.android.tools.build:gradle:3.5.4")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:0.9.17")
+        classpath("org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.17")
+        classpath("org.jfrog.buildinfo:build-info-extractor-gradle:4.15.1")
     }
 }
 
@@ -19,56 +22,28 @@ plugins {
 }
 
 allprojects {
+    apply plugin: "com.jfrog.artifactory"
+
+    apply from: "$rootDir/dependencies.gradle"
     apply from: "$rootDir/.ops/git.gradle"
+
+    version = git.versionName()
 }
 
 subprojects {
     repositories {
         google()
         mavenCentral()
+        jcenter {
+            content {
+                includeGroup "org.jetbrains.trove4j"
+            }
+        }
     }
 
-    project.apply from: "$rootDir/dependencies.gradle"
+    artifactoryPublish.dependsOn("build")
 
     afterEvaluate { project ->
-        tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-            kotlinOptions {
-                freeCompilerArgs += ["-progressive"]
-            }
-        }
-
-        if (plugins.hasPlugin("com.android.library") || plugins.hasPlugin("com.android.application")) {
-            android {
-                compileSdkVersion(30)
-                defaultConfig {
-                    targetSdkVersion(30)
-
-                    versionName = git.versionName()
-                    versionCode = git.commitCount()
-
-                    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-                }
-
-                testOptions {
-                    unitTests.returnDefaultValues = true
-                }
-
-                lintOptions {
-                    warningsAsErrors = true
-                    textReport = true
-
-                    ignoreTestSources true
-
-                    ignore "ObsoleteLintCustomCheck", "GradleDependency"
-                }
-
-                compileOptions {
-                    sourceCompatibility 1.8
-                    targetCompatibility 1.8
-                }
-            }
-        }
-
         if (project.hasProperty("check")) {
             project.apply from: "$rootDir/.ops/ktlint.gradle"
         }

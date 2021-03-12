@@ -1,0 +1,39 @@
+apply from: "$rootDir/.ops/artifactory.gradle"
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+
+            version = project.hasProperty("versionName") ? project.getProperty("versionName") : git.versionName()
+
+            groupId = project.getProperty("groupId")
+            artifactId = project.getProperty("artifactId")
+
+            pom {
+                name = "Transition animations"
+                description = "Transition animations for acorn"
+                url = "https://github.com/bryanoostra/acorn-transition-animations"
+                licenses {
+                    license {
+                        name = "The Apache License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = "bryanoostra"
+                        name = "Bryan Oostra"
+                    }
+                }
+
+                scm {
+                    connection = "scm:git@github.com:bryanoostra/acorn-transition-animations.git"
+                    developerConnection = "scm:git@github.com:bryanoostra/acorn-transition-animations.git"
+                    url = "https://github.com/bryanoostra/acorn-transition-animations"
+                }
+            }
+        }
+    }
+}
+

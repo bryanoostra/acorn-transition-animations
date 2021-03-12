@@ -1,0 +1,22 @@
+android {
+    compileSdkVersion(30)
+    defaultConfig {
+        targetSdkVersion(30)
+        minSdkVersion(21)
+
+        versionName = git.versionName()
+        versionCode = git.commitCount()
+    }
+
+    lintOptions {
+        warningsAsErrors = true
+        textReport = true
+
+        ignoreTestSources true
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
