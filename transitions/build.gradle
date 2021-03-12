@@ -3,11 +3,8 @@ plugins {
     id "kotlin-android"
 }
 
-android {
-    defaultConfig {
-        minSdkVersion(21)
-    }
-}
+apply from: "$rootDir/.ops/android.gradle"
+apply from: "$rootDir/.ops/publishing-android.gradle"
 
 dependencies {
     api "com.nhaarman.acorn.ext:acorn"

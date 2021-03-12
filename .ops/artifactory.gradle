@@ -1,0 +1,21 @@
+def artifactoryUsername = findProperty("server305_artifactory_username") ?: System.getenv("server305_artifactory_username") ?: System.getenv("ARTIFACTORY_USERNAME")
+def artifactoryPassword = findProperty("server305_artifactory_password") ?: System.getenv("server305_artifactory_password") ?: System.getenv("ARTIFACTORY_PASSWORD")
+
+artifactory {
+    contextUrl = "http://office.label305.com:22095/artifactory"
+    publish {
+        repository {
+            repoKey = "gradle-release-local"
+
+            username = artifactoryUsername
+            password = artifactoryPassword
+        }
+        defaults {
+            publications("maven")
+            publishArtifacts = true
+
+            properties = ["qa.level": "basic", "q.os": "android", "dev.team": "core"]
+            publishPom = true
+        }
+    }
+}

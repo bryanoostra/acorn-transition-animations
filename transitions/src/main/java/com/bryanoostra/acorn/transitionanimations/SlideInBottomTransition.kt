@@ -40,7 +40,7 @@ class SlideInBottomTransition(
 
             newView.animate()
                 .translationY(0f)
-                .setDuration(duratiozgn)
+                .setDuration(duration)
                 .withEndAction {
 
                     originalChildren.forEach { child -> parent.removeView(child) }
